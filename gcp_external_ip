@@ -1,0 +1,1 @@
+gcloud projects list --format 'value(projectId)' | while read pr; do gcloud compute addresses list --project $pr -q 2> /dev/null| awk '/EXTERNAL/ && !/RESERVED/ {print $2 }' ; done
